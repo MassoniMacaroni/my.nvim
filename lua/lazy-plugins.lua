@@ -676,6 +676,10 @@ require('lazy').setup({
     --    - Treesitter + textobjects: https://github.com/nvim-treesitter/nvim-treesitter-textobjects
   },
   { 'glacambre/firenvim', build = ':call firenvim#install(0)' },
+  {
+    'MassoniMacaroni/vim-spl', -- Add vim-spl plugin
+    ft = { 'spl', 'spl2' }, -- Load plugin only for spl and spl2 filetypes
+  },
   -- modular approach: using `require 'path/name'` will
   -- include a plugin definition from file lua/path/name.lua
 

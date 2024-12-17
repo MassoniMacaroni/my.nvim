@@ -62,4 +62,12 @@ vim.opt.cursorline = true
 -- Minimal number of screen lines to keep above and below the cursor.
 vim.opt.scrolloff = 10
 
+-- Add support for more filetypes
+vim.filetype.add {
+  extension = {
+    spl = 'spl',
+    spl2 = 'spl2',
+  },
+}
+
 -- vim: ts=2 sts=2 sw=2 et

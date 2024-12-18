@@ -70,4 +70,40 @@ vim.filetype.add {
   },
 }
 
+vim.api.nvim_create_autocmd({ 'BufEnter' }, {
+  pattern = '*splunkcloud.com_*.txt',
+  command = 'set filetype=spl',
+})
+
+vim.g.firenvim_config = {
+  globalSettings = { alt = 'all' },
+  localSettings = {
+    ['.*'] = {
+      cmdline = 'neovim',
+      content = 'text',
+      priority = 0,
+      selector = 'textarea',
+      takeover = 'never',
+      filename = '/tmp/{hostname}_{pathname%5}.{extension}',
+    },
+  },
+}
+
+vim.api.nvim_create_autocmd({ 'UIEnter' }, {
+  callback = function(event)
+    local client = vim.api.nvim_get_chan_info(vim.v.event.chan).client
+    if client ~= nil and client.name == 'Firenvim' then
+      vim.o.laststatus = 0
+      vim.opt.guifont = 'Cousine Nerd Font:h11'
+    end
+  end,
+})
+
+if vim.g.started_by_firenvim then
+  vim.api.nvim_create_autocmd({ 'TextChanged', 'TextChangedI' }, {
+    nested = true,
+    command = 'silent write',
+  })
+end
+
 -- vim: ts=2 sts=2 sw=2 et

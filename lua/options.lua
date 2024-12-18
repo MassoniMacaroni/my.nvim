@@ -3,6 +3,10 @@
 -- NOTE: You can change these options as you wish!
 --  For more options, you can see `:help option-list`
 
+-- Disable netrw
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
+
 -- Make line numbers default
 vim.opt.number = true
 -- You can also add relative line numbers, to help with jumping.
@@ -62,6 +66,7 @@ vim.opt.cursorline = true
 -- Minimal number of screen lines to keep above and below the cursor.
 vim.opt.scrolloff = 10
 
+-- Firenvim opts
 -- Add support for more filetypes
 vim.filetype.add {
   extension = {
@@ -106,4 +111,11 @@ if vim.g.started_by_firenvim then
   })
 end
 
+-- End firenvim opts
+
+-- Nvim-Tree opts
+-- optionally enable 24-bit colour
+vim.opt.termguicolors = true
+
+vim.keymap.set('n', '<leader>ft', ':NvimTreeOpen<CR>')
 -- vim: ts=2 sts=2 sw=2 et

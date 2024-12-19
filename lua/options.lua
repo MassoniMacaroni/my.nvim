@@ -117,5 +117,5 @@ end
 -- optionally enable 24-bit colour
 vim.opt.termguicolors = true
 
-vim.keymap.set('n', '<leader>ft', ':NvimTreeOpen<CR>')
+vim.keymap.set('n', '<leader>ft', ':NvimTreeToggle<CR>')
 -- vim: ts=2 sts=2 sw=2 et

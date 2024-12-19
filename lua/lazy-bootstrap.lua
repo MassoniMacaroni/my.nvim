@@ -8,6 +8,8 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
     error('Error cloning lazy.nvim:\n' .. out)
   end
 end ---@diagnostic disable-next-line: undefined-field
+
+-- Hey! Put lazy into the runtimepath for neovim!
 vim.opt.rtp:prepend(lazypath)
 
 -- vim: ts=2 sts=2 sw=2 et

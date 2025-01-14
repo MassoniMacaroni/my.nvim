@@ -19,6 +19,7 @@ require 'lazy-bootstrap'
 -- [[ Configure and install plugins ]]
 require 'lazy-plugins'
 
+require('oil').setup()
 -- [[ Configure Custom Parsers ]]
 -- require 'custom-parsers'
 

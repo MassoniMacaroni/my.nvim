@@ -17,7 +17,6 @@ vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagn
 
 -- Toggle Terminal
 vim.keymap.set({ 'n', 't' }, '<leader>tt', ':FloatTerminal<CR>')
-vim.keymap.set('t', '<Esc><Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' })
 
 -- Toggle FileTree
 vim.keymap.set('n', '<leader>ft', ':NvimTreeToggle<CR>', { desc = 'Toggle File Tree' })

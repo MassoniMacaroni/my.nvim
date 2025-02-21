@@ -53,3 +53,6 @@ end
 -- Example usage:
 -- Create a floating window with default dimensions
 vim.api.nvim_create_user_command('FloatTerminal', toggle_terminal, {})
+
+-- TODO: Fix this, it doesn't work.
+vim.keymap.set('t', '<Esc><Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' })

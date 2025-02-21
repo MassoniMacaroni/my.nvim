@@ -20,6 +20,8 @@ require 'lazy-bootstrap'
 require 'lazy-plugins'
 
 require('oil').setup()
+
+require 'custom.plugins.gitsigns'
 -- [[ Configure Custom Parsers ]]
 -- require 'custom-parsers'
 

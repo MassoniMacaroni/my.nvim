@@ -93,6 +93,30 @@ vim.api.nvim_create_autocmd({ 'BufEnter' }, {
   command = 'set filetype=spl',
 })
 
+-- Create an autocommand group
+vim.api.nvim_create_augroup('SplFileTypeDetection', { clear = true })
+
+-- Detect 'spl' filetype for files without an extension containing specific patterns
+vim.api.nvim_create_autocmd({ 'BufRead', 'BufNewFile' }, {
+  pattern = '*',
+  callback = function()
+    local filename = vim.fn.expand '%:t'
+    local extension = vim.fn.expand '%:e'
+
+    -- Check if the file has no extension and contains any of the specified patterns
+    if extension == '' then
+      local patterns = { 'index::', 'index=', '| search', '| makeresults', 'sourcetype=' }
+      for _, pattern in ipairs(patterns) do
+        if vim.fn.search(pattern, 'nw') ~= 0 then
+          vim.bo.filetype = 'spl'
+          break
+        end
+      end
+    end
+  end,
+  group = 'SplFileTypeDetection',
+})
+
 vim.g.firenvim_config = {
   globalSettings = { alt = 'all' },
   localSettings = {

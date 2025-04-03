@@ -21,6 +21,38 @@ vim.keymap.set({ 'n', 't' }, '<leader>tt', ':FloatTerminal<CR>')
 -- Toggle FileTree
 vim.keymap.set('n', '<leader>ft', ':NvimTreeToggle<CR>', { desc = 'Toggle File Tree' })
 
+-------------
+-- COPILOT --
+-------------
+-- Accept Copilot suggestion in insert mode with <leader>n
+vim.keymap.set('i', '<leader>n', 'copilot#Accept("<CR>")', {
+  expr = true,
+  silent = true,
+  noremap = true,
+  desc = 'Accept Copilot Suggestion',
+})
+
+-- Accept Copilot suggestion in normal mode with <leader>n
+vim.keymap.set('n', '<leader>n', function()
+  if vim.fn['copilot#Visible']() == 1 then
+    vim.fn.feedkeys(vim.fn['copilot#Accept'] '<CR>', '')
+  end
+end, { noremap = true, silent = true, desc = 'Accept Copilot Suggestion' })
+
+-- Toggle Copilot on/off with <leader>cc
+vim.keymap.set('n', '<leader>cc', function()
+  local enabled = vim.g.copilot_enabled == 1
+  if enabled then
+    vim.cmd 'Copilot disable'
+    vim.notify('🚫 Copilot disabled', vim.log.levels.WARN)
+  else
+    vim.cmd 'Copilot enable'
+    vim.notify('✅ Copilot enabled', vim.log.levels.INFO)
+  end
+end, { noremap = true, silent = true, desc = 'Toggle Copilot' })
+
+------------
+
 -- TIP: Disable arrow keys in normal mode
 -- vim.keymap.set('n', '<left>', '<cmd>echo "Use h to move!!"<CR>')
 -- vim.keymap.set('n', '<right>', '<cmd>echo "Use l to move!!"<CR>')

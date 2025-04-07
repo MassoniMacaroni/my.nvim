@@ -25,7 +25,7 @@ vim.keymap.set('n', '<leader>ft', ':NvimTreeToggle<CR>', { desc = 'Toggle File T
 -- COPILOT --
 -------------
 -- Accept Copilot suggestion in insert mode with <leader>n
-vim.keymap.set('i', '<leader>n', 'copilot#Accept("<CR>")', {
+vim.keymap.set('i', '<C-t>', 'copilot#Accept("<CR>")', {
   expr = true,
   silent = true,
   noremap = true,
@@ -33,7 +33,7 @@ vim.keymap.set('i', '<leader>n', 'copilot#Accept("<CR>")', {
 })
 
 -- Accept Copilot suggestion in normal mode with <leader>n
-vim.keymap.set('n', '<leader>n', function()
+vim.keymap.set('n', '<C-t>', function()
   if vim.fn['copilot#Visible']() == 1 then
     vim.fn.feedkeys(vim.fn['copilot#Accept'] '<CR>', '')
   end

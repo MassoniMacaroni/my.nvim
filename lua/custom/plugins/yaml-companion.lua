@@ -31,6 +31,10 @@ return {
             name = 'GitHub Workflow',
             uri = 'https://json.schemastore.org/github-workflow.json',
           },
+          {
+            name = 'Argo Workflows',
+            uri = 'https://raw.githubusercontent.com/argoproj/argo-workflows/master/api/jsonschema/schema.json',
+          },
         },
       }
     end,

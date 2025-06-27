@@ -155,3 +155,6 @@ end
 vim.opt.termguicolors = true
 
 -- vim: ts=2 sts=2 sw=2 et
+-- vim.opt.softtabstop = 2
+-- vim.opt.shiftwidth = 2
+-- vim.opt.tabstop = 2
